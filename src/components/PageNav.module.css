@@ -1,0 +1,18 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+}
+nav ul li {
+  margin: 0 10px;
+  padding: 10px 8px;
+}
+.nav :global(.active) {
+  color: var(--color-brand--2);
+}

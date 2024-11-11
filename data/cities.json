@@ -1,0 +1,10 @@
+{
+  "cities": [
+    {
+      "name": "New York",
+      "population": 8.536e6,
+      "country": "United States",
+      "continent": "North America"
+    }
+  ]
+}

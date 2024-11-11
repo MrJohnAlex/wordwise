@@ -1,0 +1,5 @@
+.mapContainer {
+  background-color: var(--color-dark--1);
+  width: 100%;
+  padding: 1.5rem 2.5rem;
+}
