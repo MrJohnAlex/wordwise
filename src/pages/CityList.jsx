@@ -1,13 +1,14 @@
-// import CityItem from "./CityItem";
+import City from "./City";
+import style from "./CityList.module.css";
 
-export default function CityList(props) {
-  console.log(props);
-
+export default function CityList({ cities, isLoading }) {
   return (
-    <ul>
-      {/* {cities.map((city) => (
-        <CityItem city={city} key={city.id} />
-      ))} */}
+    <ul className={style.cityList}>
+      {cities.map((city, index) => (
+        <li key={index}>
+          <City />
+        </li>
+      ))}
     </ul>
   );
 }

@@ -1,10 +1,16 @@
 {
   "cities": [
     {
-      "name": "New York",
-      "population": 8.536e6,
+      "cityName": "New York",
       "country": "United States",
-      "continent": "North America"
+      "emoji": "🚩",
+      "date": "20207-10-31T15:59:59.138z",
+      "notes": "My favorite city so far!",
+      "position": {
+        "lat": "38.727881642624164",
+        "lng": "-9.140900099907554"
+      },
+      "id": 1
     }
   ]
 }
