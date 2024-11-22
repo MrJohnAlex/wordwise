@@ -13,7 +13,7 @@ import { useEffect, useState } from "react";
 const BASE_URL = "http://localhost:4000";
 
 function App() {
-  const [cities, setCity] = useState([]);
+  const [cities, setCities] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -22,7 +22,7 @@ function App() {
         setIsLoading(true);
         const response = await fetch(`${BASE_URL}/cities`);
         const res = await response.json();
-        setCity(res);
+        setCities(res);
       } catch {
         alert("Error fetching cities");
       } finally {

@@ -1,13 +1,20 @@
-import City from "./City";
+import CityItem from "./CityItem";
 import style from "./CityList.module.css";
+import Message from "./Message";
 
 export default function CityList({ cities, isLoading }) {
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+  if (cities.length === 0) {
+    return (
+      <Message message="Add your first city by clicking on a city on the map" />
+    );
+  }
   return (
     <ul className={style.cityList}>
       {cities.map((city, index) => (
-        <li key={index}>
-          <City />
-        </li>
+        <CityItem city={city} key={index} />
       ))}
     </ul>
   );
