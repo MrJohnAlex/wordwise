@@ -1,0 +1,11 @@
+.form {
+  /* display: flex;
+  flex-direction: row; */
+  max-width: 800px;
+  color: white !important;
+}
+.btn {
+  display: flex !important;
+  justify-content: space-between;
+  align-items: center;
+}
