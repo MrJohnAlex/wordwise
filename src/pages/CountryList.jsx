@@ -1,8 +1,10 @@
+import { useCities } from "../contexts/CitiesContext";
 import CountryItem from "./CountryItem";
 import style from "./CountryList.module.css";
 import Message from "./Message";
 
-export default function CountryList({ cities, isLoading }) {
+export default function CountryList() {
+  const { cities, isLoading } = useCities();
   if (isLoading) {
     return <div>Loading...</div>;
   }
