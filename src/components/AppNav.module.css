@@ -1,12 +1,12 @@
-/* .nav {
-  background-color: rgb(22, 2, 40);
+.nav {
   color: var(--color-light--3);
-} */
+  max-width: 50%;
+  margin: 0 auto;
+}
 .nav ul {
   list-style: none;
-  display: flex;
+  display: inline-flex;
   background-color: var(--color-dark--2);
-  border-radius: 7px;
 }
 .nav a:link,
 nav a:visited {
@@ -19,5 +19,5 @@ nav a:visited {
   font-weight: 700;
 }
 .nav a:global(.active) {
-  background-color: var(--color-dark--0);
+  background-color: var(--color-dark--1);
 }

@@ -1,18 +1,18 @@
-.nav {
+.pageNav {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.nav ul {
+.pageNav ul {
   list-style: none;
   display: flex;
   justify-content: space-between;
   padding: 0;
 }
-nav ul li {
+pageNav ul li {
   margin: 0 10px;
   padding: 10px 8px;
 }
-.nav :global(.active) {
+.pageNav :global(.active) {
   color: var(--color-brand--2);
 }

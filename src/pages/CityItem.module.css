@@ -1,3 +1,11 @@
+.cityItem {
+  display: flex;
+  justify-content: space-between;
+}
+.cityItem .emoji {
+  width: 100px;
+  height: 100px;
+}
 .active-city {
   border: 2px solid green;
 }

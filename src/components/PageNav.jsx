@@ -4,7 +4,7 @@ import Logo from "./Logo";
 
 export default function PageNav() {
   return (
-    <nav className={styles.nav}>
+    <nav className={styles.pageNav}>
       <Logo />
       <ul>
         <li>

@@ -18,6 +18,10 @@
 a {
   text-decoration: none;
 }
+
+ul li {
+  list-style: none;
+}
 input:focus {
   outline: none;
   background-color: #fff;
