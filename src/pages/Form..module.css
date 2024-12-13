@@ -1,10 +1,35 @@
 .form {
-  /* display: flex;
-  flex-direction: row; */
-  max-width: 800px;
-  color: white !important;
+  max-width: 500px;
+  background-color: var(--color-dark--1);
+  border-radius: 5px;
+  margin: 3rem auto;
+  padding: 1rem 1.2rem;
+}
+
+.formControl {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
+  color: var(--color-light--3);
+}
+.formControl label {
+  font-weight: 600;
+  font-size: 1rem;
+  margin: 1rem 0rem;
+}
+.formControl input,
+textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 5px;
+  border: none;
+  background-color: var(--color-light--3);
+  color: var(--color-dark--2);
 }
 .btn {
+  position: relative;
+  margin-top: 2rem;
   display: flex !important;
   justify-content: space-between;
   align-items: center;
