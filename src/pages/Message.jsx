@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
-// import styles from "./Message.module.css";
+import styles from "./Message.module.css";
 export default function Message({ message }) {
   return (
-    <p>
+    <p className={styles.message}>
       <span>🫲</span> {message}
     </p>
   );
