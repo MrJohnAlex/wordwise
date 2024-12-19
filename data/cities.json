@@ -10,7 +10,31 @@
         "lat": "38.727881642624164",
         "lng": "-9.140900099907554"
       },
-      "id": 1
+      "id": "1"
+    },
+    {
+      "id": "4a06",
+      "cityName": "Madrid",
+      "countryName": "Spain",
+      "notes": "",
+      "emoji": "",
+      "date": "2024-12-19T11:28:57.818Z",
+      "position": {
+        "lat": "40.37070480608428",
+        "lng": "-3.5944605944146333"
+      }
+    },
+    {
+      "id": "46c7",
+      "cityName": "Villamayor de Gallego",
+      "countryName": "Spain",
+      "notes": "",
+      "emoji": "",
+      "date": "2024-12-19T11:29:02.753Z",
+      "position": {
+        "lat": "41.7131486589448",
+        "lng": "-0.8035726648655929"
+      }
     }
   ]
 }

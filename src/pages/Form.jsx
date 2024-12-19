@@ -1,11 +1,14 @@
-import styles from "./Form..module.css";
-import Button from "../pages/Button";
+import DatePicker from "react-datepicker";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import "react-datepicker/dist/react-datepicker.css";
+import styles from "./Form..module.css";
+import Button from "../pages/Button";
 import { useUrlPosition } from "../hooks/useUrlPosition";
 import Message from "./Message";
 import Spinner from "./Spinner";
-import { latLng } from "leaflet";
+import { useCities } from "../contexts/CitiesContext";
+import { map } from "leaflet";
 
 export function convertToEmoji(contryCode) {
   const codePoints = contryCode
@@ -16,12 +19,14 @@ export function convertToEmoji(contryCode) {
 }
 export default function Form() {
   const [mapLat, mapLng] = useUrlPosition();
+  const { createCity, isLoading } = useCities();
   const navigate = useNavigate();
   const [isLoadingGeoCodeing, setIsLoadingGeoCodeing] = useState(false);
   const [cityName, setCityName] = useState();
   const [countryName, setCountryName] = useState();
   const [date, setDate] = useState(new Date());
   const [emoji, setEmoji] = useState("");
+  const [notes, setNotes] = useState("");
   const [geoCodingError, setGeoCodingError] = useState("");
   const BASE_URL = "https://api.bigdatacloud.net/data/reverse-geocode-client/";
 
@@ -59,13 +64,33 @@ export default function Form() {
     [mapLat, mapLng]
   );
 
+  async function handleSubmit(e) {
+    e.preventDefault();
+    if (!cityName || !date) {
+      return;
+    }
+    const newCity = {
+      cityName,
+      countryName,
+      notes,
+      emoji,
+      date: date.toISOString(),
+      position: { lat: mapLat, lng: mapLng },
+    };
+    await createCity(newCity);
+    navigate("/app/cities");
+  }
+
   if (!mapLat && !mapLng)
     return <Message message="Start by clicking on the map" />;
   if (isLoadingGeoCodeing) return <Spinner />;
   if (geoCodingError) return <Message message={geoCodingError} />;
 
   return (
-    <div className={styles.form}>
+    <form
+      className={`${styles.form} ${isLoading ? styles.loading : ""}`}
+      onSubmit={handleSubmit}
+    >
       <div className={styles.formControl}>
         <label htmlFor="cityName">City Name</label>
         <input
@@ -74,6 +99,7 @@ export default function Form() {
           className={styles.input}
           placeholder="City Name"
           value={cityName}
+          onChange={(e) => setCityName(e.target.value)}
         />
         <span className={styles.emoji}>{emoji}</span>
       </div>
@@ -81,16 +107,17 @@ export default function Form() {
         <label htmlFor="dateTime">
           When did you go {cityName ?? "Yangon"}?
         </label>
-        <input
-          type="text"
-          id="dateTime"
-          className={styles.input}
-          placeholder="Go Date"
-        />
+        <DatePicker selected={date} onChange={(date) => setDate(date)} />
       </div>
       <div className={styles.formControl}>
         <label htmlFor="cityName">Notes about your trip to {cityName}</label>
-        <textarea type="text" className={styles.input} placeholder="Notes" />
+        <textarea
+          type="text"
+          className={styles.input}
+          placeholder="Notes"
+          value={notes}
+          onChange={(e) => setNotes(e.target.value)}
+        />
       </div>
       <div className={styles.btn}>
         <Button type="primary">Add</Button>
@@ -104,6 +131,6 @@ export default function Form() {
           &larr; Back
         </Button>
       </div>
-    </div>
+    </form>
   );
 }
