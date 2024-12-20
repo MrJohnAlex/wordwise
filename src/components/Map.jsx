@@ -13,9 +13,11 @@ import { useCities } from "../contexts/CitiesContext";
 import { useGeolocation } from "../hooks/useGeolocation";
 import Button from "../pages/Button";
 import { useUrlPosition } from "../hooks/useUrlPosition";
+import { useAuth } from "../contexts/FakeAuthContext";
 export default function Map() {
   const [initialPosition, setInitialPosition] = useState([51.505, -0.09]);
   const { cities } = useCities();
+  const navigate = useNavigate();
   const {
     isLoading: isLoadingPosition,
     position: geoLocation,
