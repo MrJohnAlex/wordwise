@@ -2,7 +2,7 @@
 export default function Spinner() {
   return (
     // <div className={styles.spinner}>
-    <span></span>
+    <span>Loading</span>
     // </div>
   );
 }
